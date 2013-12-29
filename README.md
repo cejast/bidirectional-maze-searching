@@ -1,4 +1,5 @@
 #Bidirectional Maze Search
+![bidir-maze-search](http://cejast.github.io/bidirectional-maze-searching/bidir.png)
 ##About
 A bidirectional maze searching algorithm implemented in Java for a university assignment. The original maze problem has been adapted from [Algorithms 4th Edition (Robert Sedgewick and Kevin Wayne)](http://algs4.cs.princeton.edu/41undirected/Maze.java.html) along with the [maze visualization](http://algs4.cs.princeton.edu/41undirected/StdDraw.java).
 
