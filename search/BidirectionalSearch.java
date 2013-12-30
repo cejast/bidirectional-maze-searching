@@ -30,16 +30,18 @@ public class BidirectionalSearch extends MazeSearchBidirectional {
             if (frontierForward.size() < frontierBackward.size()){
                 //expand forward frontier
                 Node n = ((PriorityQueue<Node>) frontierForward).poll();
-                Node found = expandFrontier(n, true, forwardClosed, count);
+                Node found = expandFrontier(n, true, forwardClosed);
                 if(found != null){
+                    System.out.println("Nodes expanded: " + count);
                     return found;
                 }
             }
             else{
                 //expand backward frontier
                 Node n = ((PriorityQueue<Node>) frontierBackward).poll();
-                Node found = expandFrontier(n, false, backwardClosed, count);
+                Node found = expandFrontier(n, false, backwardClosed);
                 if(found != null){
+                    System.out.println("Nodes expanded: " + count);
                     return found;
                 }
             }
@@ -52,8 +54,8 @@ public class BidirectionalSearch extends MazeSearchBidirectional {
         return null;
     }
 
-    //expandFrontier(Node expanded, forward or back frontier, frontiers closed set, count of node expansions)
-    public Node expandFrontier(Node n, boolean f, Set<State> frontier, int count){
+    //expandFrontier(Node expanded, forward or back frontier, frontiers closed set)
+    public Node expandFrontier(Node n, boolean f, Set<State> frontier){
         Object[] array;
 
         if(f){
@@ -68,7 +70,6 @@ public class BidirectionalSearch extends MazeSearchBidirectional {
             if(object.getState().hashCode() == n.getState().hashCode()){
                 highlightPath(n);
                 highlightPath(object);
-                System.out.println("Nodes expanded: " + count);
                 return n;
             }
         }
